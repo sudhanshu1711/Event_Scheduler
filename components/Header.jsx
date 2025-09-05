@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { PenBox } from "lucide-react";
+import UserMenu from "./user-menu";
 
 async function Header() {
 
@@ -33,7 +34,7 @@ async function Header() {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-            <UserButton />
+            <UserMenu />
         </SignedIn>
       </div>
     </nav>
