@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { PenBox } from "lucide-react";
 
-const Header = () => {
+async function Header() {
+
+
   return (
     <nav className="mx-auto py-2 px-4 flex justify-between items-center shadow-md border-b-2">
       <Link href="/" className="flex items-center">
@@ -24,9 +27,17 @@ const Header = () => {
             <span className="hidden sm:inline">Create Event</span>
           </Button>
         </Link>
-        </div>
+        <SignedOut>
+          <SignInButton forceRedirectUrl="/dashboard">
+            <Button variant="outline">Login</Button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+            <UserButton />
+        </SignedIn>
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Header
+export default Header;
